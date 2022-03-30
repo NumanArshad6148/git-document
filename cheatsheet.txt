@@ -1,0 +1,108 @@
+https://dev.to/doabledanny/git-cheat-sheet-50-commands-free-pdf-and-poster-4gcn
+
+Reset to the latest commit on remote / upstream
+This will remove all local changes.
+git reset --hard HEAD
+
+//check unused dependencies
+npm install -g depcheck
+then run depcheck to list unused package
+
+https://dev.to/render/git-organized-a-better-git-flow-56go
+
+step_ 1: 
+ git checkout 'target branch name' //swicth to another branch if no changes exist locally
+ 
+ step_ 2:
+ git checkout -b 'branch name' //Create new branch and switch to new branch 
+
+
+git log --graph --abbrev-commit --decorate --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+
+ 
+ step_ 3:
+//push branch
+git add.
+git commit -m 'commit message'
+git push -u origin 'branch_name'
+
+//commit message
+git commit --ammend -m 'update unpush last commit message'
+
+//toggle swicth to prev branch
+git checkout -
+ 
+git branch --all   //list all branches
+ 
+git branch --merge //list merge branches
+
+git branch --no-merge //list un merge branch
+
+git checkout . //discard index tree (local changes)
+
+https://github.com/Delphi-Care-Solutions-Ltd/NP-Report-Services/commit/7f2d64627176060ed9c35e4547695e2998f73485
+
+git reset . //unstage changes to index tree (local changes)
+
+//switch to another branch if local changes exist
+git stash / git stash save 'wre'
+repeat step_1 or step_2 
+git stash apply / git stash pop stash@{0} 
+ 
+//delete branch event if it hasn't been pushed or merged yet (force delete)
+ git branch -D <branch-name>
+
+//delete only it has been pushed and merged
+git branch -d <branch-name> 
+ 
+ ///delete remote branch
+ git push origin --delete <old_name>
+
+///renaming branch//
+git branch -m features/passport-auth <BRANCH>
+git fetch origin
+git branch -u origin/<BRANCH> <BRANCH>
+ 
+ //merge branches
+ git checkout a //(you will switch to branch a)
+git merge b //(this will merge all changes from branch b into branch a)
+git commit -a //(this will commit your changes)
+git commit --amend -m "New commit message."
+ git push 
+
+//Rename Branch
+ https://linuxize.com/post/how-to-rename-local-and-remote-git-branch/
+
+
+setup different repo account on same machine
+add folllowing line in config file
+
+[credential]
+	useHttpPath = true
+or using terminal
+git credential.useHttpPath true
+
+//Commit message standard
+https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/
+
+https://stackoverflow.com/questions/37104273/how-to-set-aliases-in-the-git-bash-for-windows
+
+You can use git aliases, e.g.
+
+git config --global alias.add-commit '!git add -A && git commit'
+and use it with
+
+git add-commit -m 'My commit message'
+
+https://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged
+
+//delete multiple  branches and exluding branches 
+git branch --merged | grep -E -v "(main|release|development)" | xargs git branch -d
+
+
+sync remote ref branch in local with remote
+git fetch --prune/-p
+
+git push origin :branchname => will remove the remote branch origin/branchname both locally and on the remote itself. 
+
+git log --first-parent
